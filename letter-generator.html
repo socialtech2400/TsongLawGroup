@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Write to Congress: Oppose the Federal Surrogacy Bills</title>
+<style>
+  :root{
+    --ink:#2e1a1c;
+    --ink-soft:#6b4a4f;
+    --paper:#fbf7f6;
+    --card:#ffffff;
+    --line:#e7dcdb;
+    --accent:#924a4a;
+    --accent-dark:#65364a;
+    --heading:#92364a;
+    --brand-tint:#f4eaea;
+    --focus:#924a4a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    padding:8px;
+  }
+  .wrap{max-width:1040px;margin:0 auto}
+  header.tool-head{
+    border-bottom:3px solid var(--accent);
+    padding:4px 0 14px;
+    margin-bottom:20px;
+  }
+  header.tool-head h2{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-weight:700;
+    color:var(--heading);
+    font-size:1.4rem;
+    letter-spacing:.005em;
+  }
+  header.tool-head p{
+    color:var(--ink-soft);
+    font-size:.92rem;
+    margin-top:4px;
+    max-width:60ch;
+  }
+  .cols{display:flex;gap:24px;align-items:flex-start}
+  .form-col{flex:1 1 380px;min-width:300px}
+  .letter-col{flex:1 1 440px;min-width:300px}
+  @media(max-width:760px){.cols{flex-direction:column}.letter-col{width:100%}}
+
+  fieldset{
+    border:1px solid var(--line);
+    background:var(--card);
+    padding:14px 16px 16px;
+    margin-bottom:16px;
+    border-radius:3px;
+  }
+  legend{
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--accent-dark);
+    padding:0 6px;
+  }
+  .bill{
+    display:flex;
+    gap:10px;
+    padding:9px 0;
+    border-bottom:1px dotted var(--line);
+    align-items:flex-start;
+  }
+  .bill:last-child{border-bottom:none}
+  .bill input[type=checkbox]{
+    margin-top:4px;
+    width:16px;height:16px;
+    accent-color:var(--accent-dark);
+    flex:none;
+  }
+  .bill label{cursor:pointer}
+  .bill b{font-size:.95rem}
+  .bill span{display:block;font-size:.83rem;color:var(--ink-soft)}
+  .row{margin-bottom:12px}
+  .row:last-child{margin-bottom:0}
+  label.lbl{display:block;font-size:.85rem;font-weight:600;margin-bottom:4px}
+  input[type=text],textarea{
+    width:100%;
+    border:1px solid var(--line);
+    background:#fff;
+    padding:8px 10px;
+    font:inherit;
+    font-size:.92rem;
+    border-radius:3px;
+    color:var(--ink);
+  }
+  input[type=text]:focus,textarea:focus,button:focus,input[type=checkbox]:focus-visible,input[type=radio]:focus-visible{
+    outline:2px solid var(--focus);
+    outline-offset:1px;
+  }
+  textarea{resize:vertical;min-height:64px}
+  .radios{display:flex;gap:18px;flex-wrap:wrap}
+  .radios label{display:flex;gap:6px;align-items:center;font-size:.92rem;cursor:pointer}
+  .radios input{accent-color:var(--accent-dark)}
+  .hint{font-size:.8rem;color:var(--ink-soft);margin-top:6px}
+  .hint a{color:var(--accent-dark)}
+  .conn-group{padding:9px 0;border-bottom:1px dotted var(--line)}
+  .conn-group:last-child{border-bottom:none;padding-bottom:0}
+  .conn-role{display:block;font-size:.85rem;font-weight:600;margin-bottom:5px}
+  .conn-opts{display:flex;flex-wrap:wrap;gap:6px 16px}
+  .conn-opts label,.conn-cb{display:inline-flex;gap:5px;align-items:center;font-size:.88rem;cursor:pointer}
+  .conn-cb{font-weight:600;font-size:.85rem}
+  .conn-group input[type=checkbox]{accent-color:var(--accent-dark);width:15px;height:15px;flex:none}
+  #proHow{margin-top:7px}
+  #proHow:disabled{background:#f1e9e8;color:#9a8a8c;cursor:not-allowed}
+  .grp-intro{font-size:.85rem;color:var(--ink-soft);margin-bottom:10px;display:flex;align-items:center;gap:7px}
+  .tip{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:17px;height:17px;border-radius:50%;
+    background:var(--accent-dark);color:#fff;
+    font-size:.72rem;font-weight:700;font-style:italic;
+    cursor:help;position:relative;flex:none;
+  }
+  .tip-pop{
+    visibility:hidden;opacity:0;
+    position:absolute;left:50%;top:calc(100% + 8px);
+    transform:translateX(-50%);
+    width:250px;max-width:72vw;
+    background:var(--ink);color:#fff;
+    font-size:.8rem;font-weight:400;font-style:normal;line-height:1.45;
+    text-align:left;padding:10px 12px;border-radius:4px;
+    box-shadow:0 4px 14px rgba(34,48,74,.25);
+    z-index:20;
+  }
+  .tip-pop::before{
+    content:"";position:absolute;left:50%;bottom:100%;
+    transform:translateX(-50%);
+    border:6px solid transparent;border-bottom-color:var(--ink);
+  }
+  .tip:hover .tip-pop,.tip:focus .tip-pop,.tip:focus-visible .tip-pop{visibility:visible;opacity:1}
+  .chamber-block{
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:10px 14px 4px;
+    background:var(--brand-tint);
+  }
+  .chamber-head{
+    font-size:.82rem;font-weight:600;
+    color:var(--heading);
+    letter-spacing:.04em;text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  .chamber-head small{
+    text-transform:none;letter-spacing:0;font-weight:400;
+    color:var(--ink-soft);font-size:.8rem;margin-left:4px;
+  }
+  .chamber-or{
+    text-align:center;font-size:.8rem;color:var(--ink-soft);
+    font-variant:small-caps;letter-spacing:.1em;
+    margin:8px 0;position:relative;
+  }
+  .name-row{margin-top:8px;margin-bottom:10px}
+  .chamber-block.inactive{opacity:.55}
+  .chamber-block.inactive .chamber-head{color:var(--ink-soft)}
+
+  .letter-sheet{
+    background:#fff;
+    border:1px solid var(--line);
+    border-top:4px solid var(--accent-dark);
+    box-shadow:0 2px 10px rgba(46,26,28,.10);
+    padding:28px 30px;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:.92rem;
+    line-height:1.65;
+    white-space:pre-wrap;
+    min-height:340px;
+  }
+  @media(max-width:480px){.letter-sheet{padding:20px 16px}}
+  .letter-empty{color:var(--ink-soft);font-style:italic}
+  .actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  button{
+    font:inherit;
+    font-size:.9rem;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:3px;
+    cursor:pointer;
+    border:1px solid var(--accent-dark);
+  }
+  .btn-primary{background:var(--accent-dark);color:#fff}
+  .btn-primary:hover{background:#4f2939}
+  .btn-secondary{background:#fff;color:var(--accent-dark)}
+  .btn-secondary:hover{background:var(--brand-tint)}
+  .copied{font-size:.85rem;color:var(--accent-dark);align-self:center;display:none}
+  .copied.show{display:inline}
+  @media(prefers-reduced-motion:no-preference){
+    .letter-sheet{transition:box-shadow .25s ease}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="tool-head">
+    <h2>Write to Congress About the Federal Surrogacy Bills</h2>
+    <p>Select the bills you oppose, add your details, and copy the finished letter into your legislator's contact form, an email, or a printed letter.</p>
+  </header>
+
+  <div class="cols">
+    <div class="form-col">
+      <fieldset>
+        <legend>Bills you oppose</legend>
+        <p class="grp-intro">Choose one chamber per letter.
+          <span class="tip" tabindex="0" role="button" aria-label="Why you choose one chamber">i<span class="tip-pop">The House and Senate are separate chambers with separate bills. A letter about the House bills goes to your U.S. Representative. A letter about the Senate bill goes to your two U.S. Senators. So a single letter opposes the House bills or the Senate bill. Checking one set clears the other. To oppose both, send a second letter to the other chamber.</span></span>
+        </p>
+
+        <div class="chamber-block" id="houseGroup">
+          <div class="chamber-head">House bills <small>to your Representative</small></div>
+          <div class="bill">
+            <input type="checkbox" id="b9131" checked>
+            <label for="b9131"><b>H.R. 9131, Protecting Kids from Creeps Act</b>
+            <span>Mandatory minimums of 10 to 20 years with no screening standard or safe harbor</span></label>
+          </div>
+          <div class="bill">
+            <input type="checkbox" id="b9132" checked>
+            <label for="b9132"><b>H.R. 9132, Preventing International Surrogacy Exploitation Act</b>
+            <span>Voids agreements with nearly all international intended parents</span></label>
+          </div>
+          <div class="bill">
+            <input type="checkbox" id="b7040" checked>
+            <label for="b7040"><b>H.R. 7040, SAFE KIDS Act (House)</b>
+            <span>Voids agreements with parents from listed countries, no new protections</span></label>
+          </div>
+          <div class="row name-row">
+            <label class="lbl" for="repName">Your Representative's last name (optional)</label>
+            <input type="text" id="repName" placeholder="e.g., Garcia" autocomplete="off">
+            <p class="hint">Not sure? Find your <a href="https://www.house.gov/representatives/find-your-representative" target="_blank" rel="noopener">Representative</a>.</p>
+          </div>
+        </div>
+
+        <div class="chamber-or">or</div>
+
+        <div class="chamber-block" id="senateGroup">
+          <div class="chamber-head">Senate bill <small>to your Senators</small></div>
+          <div class="bill">
+            <input type="checkbox" id="b3101">
+            <label for="b3101"><b>S. 3101, SAFE KIDS Act (Senate)</b>
+            <span>Senate version of the SAFE KIDS Act</span></label>
+          </div>
+          <div class="row name-row">
+            <label class="lbl" for="senName">Your Senator's last name (optional)</label>
+            <input type="text" id="senName" placeholder="e.g., Lee" autocomplete="off">
+            <p class="hint">Not sure? Find your <a href="https://www.senate.gov/senators/senators-contact.htm" target="_blank" rel="noopener">Senators</a>.</p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>About you</legend>
+        <div class="row">
+          <label class="lbl" for="sname">Your name</label>
+          <input type="text" id="sname" placeholder="Full name" autocomplete="name">
+        </div>
+        <div class="row">
+          <label class="lbl" for="scity">Your city and state</label>
+          <input type="text" id="scity" placeholder="e.g., Los Angeles, California" autocomplete="off">
+        </div>
+        <div class="row">
+          <label class="lbl">Your connection to surrogacy (check all that apply)</label>
+          <div class="conn-group">
+            <span class="conn-role">Gestational surrogate</span>
+            <div class="conn-opts">
+              <label><input type="checkbox" id="surrFormer"> Former</label>
+              <label><input type="checkbox" id="surrCurrent"> Current</label>
+              <label><input type="checkbox" id="surrPros"> Prospective</label>
+            </div>
+          </div>
+          <div class="conn-group">
+            <span class="conn-role">Intended parent</span>
+            <div class="conn-opts">
+              <label><input type="checkbox" id="ipFormer"> Former</label>
+              <label><input type="checkbox" id="ipCurrent"> Current</label>
+              <label><input type="checkbox" id="ipPros"> Prospective</label>
+            </div>
+          </div>
+          <div class="conn-group">
+            <label class="conn-cb"><input type="checkbox" id="proPro"> Industry professional</label>
+            <input type="text" id="proHow" placeholder="In what role? e.g., reproductive attorney, agency case manager, fertility nurse, mental health professional" disabled>
+          </div>
+        </div>
+        <div class="row">
+          <label class="lbl" for="srole">Anything you'd like to add (optional)</label>
+          <textarea id="srole" placeholder="A sentence in your own words about why this matters to you."></textarea>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="letter-col">
+      <div class="letter-sheet" id="letter" aria-live="polite"></div>
+      <div class="actions">
+        <button class="btn-primary" id="copyBtn" type="button">Copy letter</button>
+        <button class="btn-secondary" id="printBtn" type="button">Print</button>
+        <span class="copied" id="copiedMsg">Copied to clipboard</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var bills = {
+    b9131:{
+      cite:"H.R. 9131, the Protecting Kids from Creeps Act",
+      para:"I support screening intended parents, and reputable surrogacy programs already do it. But H.R. 9131 contains no screening standard, no definition of an adequate background check, and no safe harbor for agencies that screen properly. Instead it imposes a mandatory minimum of 10 years in prison on agencies found to have acted recklessly and 20 years on those acting knowingly, based on a definition of sex offender that includes anyone ever required to register, at any tier, for any offense, no matter how long ago. It also voids the surrogacy agreement itself, which forces the child into custody litigation and strips the surrogate, who did nothing wrong, of her contractual protections. If Congress wants background checks in surrogacy, it should set a clear standard with proportional penalties, not this."
+    },
+    b9132:{
+      cite:"H.R. 9132, the Preventing International Surrogacy Exploitation Act",
+      para:"H.R. 9132 is described as targeting adversarial nations, but its text voids surrogacy agreements with any foreign national, meaning intended parents from Canada, France, Japan, and every other country, unless they are a married couple that includes a U.S. citizen or permanent resident. Many of these families come to the United States precisely because our state laws, with independent counsel, escrow, and court-issued parentage judgments, are the most regulated path to surrogacy in the world. Voiding their contracts does not prevent exploitation. It eliminates the surrogate's ability to enforce her compensation, insurance, and medical autonomy, leaves children in custody limbo, and even bars a parent from any immigration benefit through their own U.S. citizen child."
+    },
+    b7040:{
+      cite:"H.R. 7040, the SAFE KIDS Act",
+      para:"The trafficking and fraud cited in the SAFE KIDS Act findings, including the Arcadia, California case, are already federal crimes being prosecuted under existing law. H.R. 7040 adds no licensing, no background checks, no escrow or insurance requirements, and no oversight of the unlicensed brokers actually responsible for that case. What it does is void lawful, attorney-negotiated agreements after the fact, which removes the very contractual protections that keep surrogates safe and pushes demand toward the unregulated operators the bill claims to target. It also overrides state family law frameworks that have governed surrogacy carefully for decades."
+    },
+    b3101:{
+      cite:"S. 3101, the SAFE KIDS Act",
+      para:"The trafficking and fraud cited in the SAFE KIDS Act findings, including the Arcadia, California case, are already federal crimes being prosecuted under existing law. S. 3101 adds no licensing, no background checks, no escrow or insurance requirements, and no oversight of the unlicensed brokers actually responsible for that case. What it does is void lawful, attorney-negotiated agreements after the fact, which removes the very contractual protections that keep surrogates safe and pushes demand toward the unregulated operators the bill claims to target. It also overrides state family law frameworks that have governed surrogacy carefully for decades."
+    }
+  };
+
+  var houseIds=["b9131","b9132","b7040"];
+  var ids=["b9131","b9132","b7040","b3101"];
+  var $=function(id){return document.getElementById(id)};
+
+  function activeChamber(){
+    if(houseIds.some(function(id){return $(id).checked}))return "house";
+    if($("b3101").checked)return "senate";
+    return null;
+  }
+
+  function checkedBills(){
+    return ids.filter(function(id){return $(id).checked});
+  }
+
+  function syncChambers(){
+    var ch=activeChamber();
+    $("repName").disabled=(ch==="senate");
+    $("senName").disabled=(ch==="house");
+    $("houseGroup").className="chamber-block"+(ch==="senate"?" inactive":"");
+    $("senateGroup").className="chamber-block"+(ch==="house"?" inactive":"");
+  }
+
+  function listCites(sel){
+    var cites=sel.map(function(id){return bills[id].cite});
+    if(cites.length===1)return cites[0];
+    if(cites.length===2)return cites[0]+" and "+cites[1];
+    return cites.slice(0,-1).join("; ")+"; and "+cites[cites.length-1];
+  }
+
+  function andList(parts){
+    if(parts.length===1)return parts[0];
+    if(parts.length===2)return parts[0]+" and "+parts[1];
+    return parts.slice(0,-1).join(", ")+", and "+parts[parts.length-1];
+  }
+
+  function joinStatuses(arr){
+    if(arr.length===1)return arr[0];
+    if(arr.length===2)return arr[0]+" and "+arr[1];
+    return arr.slice(0,-1).join(", ")+", and "+arr[arr.length-1];
+  }
+
+  function statusList(prefix){
+    var map=[["Former","former"],["Current","current"],["Pros","prospective"]];
+    return map.filter(function(m){return $(prefix+m[0]).checked}).map(function(m){return m[1]});
+  }
+
+  function connectionClause(){
+    var parts=[];
+    var s=statusList("surr");
+    if(s.length)parts.push("a "+joinStatuses(s)+" gestational surrogate");
+    var ip=statusList("ip");
+    if(ip.length)parts.push("a "+joinStatuses(ip)+" intended parent");
+    if($("proPro").checked){
+      var how=$("proHow").value.trim();
+      parts.push("a surrogacy industry professional"+(how?" ("+how+")":""));
+    }
+    return parts.length?andList(parts):"";
+  }
+
+  function buildLetter(){
+    var sel=checkedBills();
+    var el=$("letter");
+    if(sel.length===0){
+      el.innerHTML='<span class="letter-empty">Select at least one bill to generate your letter.</span>';
+      return;
+    }
+    var today=new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
+    var ch=activeChamber();
+    var t=(ch==="senate")?"Senator":"Representative";
+    var lname=(ch==="senate")?$("senName").value.trim():$("repName").value.trim();
+    var salutation=lname?("Dear "+t+" "+lname):("Dear "+t);
+    var name=$("sname").value.trim()||"[Your name]";
+    var city=$("scity").value.trim();
+    var role=$("srole").value.trim();
+    var conn=connectionClause();
+
+    var lines=[];
+    lines.push(today);
+    lines.push("");
+    lines.push(salutation+",");
+    lines.push("");
+    var intro="I am writing as your constituent"+(city?" in "+city:"");
+    if(conn){intro+=", and as "+conn+",";}
+    intro+=" to ask you to oppose "+listCites(sel)+".";
+    if(role){intro+=" "+role;}
+    lines.push(intro);
+    lines.push("");
+    sel.forEach(function(id){
+      lines.push(bills[id].para);
+      lines.push("");
+    });
+    lines.push("Surrogacy in the United States is governed by careful state laws that require independent attorneys, court review, and enforceable protections for surrogates and children. These bills would replace that protection with punishment and prohibition, and the people they would hurt most are the children and surrogates they claim to defend. I ask you to oppose "+(sel.length>1?"these bills":"this bill")+" and to support any future legislation only if it sets real, workable standards rather than voiding lawful family-building agreements.");
+    lines.push("");
+    lines.push("Thank you for your time and your service.");
+    lines.push("");
+    lines.push("Sincerely,");
+    lines.push(name+(city?"\n"+city:""));
+
+    el.textContent=lines.join("\n");
+  }
+
+  function update(){syncChambers();buildLetter();}
+
+  houseIds.forEach(function(id){
+    $(id).addEventListener("change",function(){
+      if($(id).checked)$("b3101").checked=false;
+      update();
+    });
+  });
+  $("b3101").addEventListener("change",function(){
+    if($("b3101").checked)houseIds.forEach(function(id){$(id).checked=false});
+    update();
+  });
+
+  ["repName","senName","sname","scity","srole","proHow"].forEach(function(id){$(id).addEventListener("input",buildLetter)});
+
+  ["surrFormer","surrCurrent","surrPros","ipFormer","ipCurrent","ipPros"].forEach(function(id){
+    $(id).addEventListener("change",buildLetter);
+  });
+  $("proPro").addEventListener("change",function(){
+    var on=$("proPro").checked;
+    $("proHow").disabled=!on;
+    if(on)$("proHow").focus();
+    buildLetter();
+  });
+
+  $("copyBtn").addEventListener("click",function(){
+    var text=$("letter").textContent;
+    var done=function(){
+      var m=$("copiedMsg");
+      m.className="copied show";
+      setTimeout(function(){m.className="copied"},2200);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done,function(){fallbackCopy(text);done();});
+    }else{
+      fallbackCopy(text);done();
+    }
+  });
+
+  function fallbackCopy(text){
+    var ta=document.createElement("textarea");
+    ta.value=text;
+    ta.style.position="fixed";ta.style.opacity="0";
+    document.body.appendChild(ta);
+    ta.select();
+    try{document.execCommand("copy")}catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  $("printBtn").addEventListener("click",function(){
+    var w=window.open("","_blank");
+    if(!w)return;
+    w.document.write("<pre style=\"font-family:Georgia,serif;font-size:12pt;white-space:pre-wrap;line-height:1.6;max-width:6.5in;margin:1in auto;\">"+
+      $("letter").textContent.replace(/&/g,"&amp;").replace(/</g,"&lt;")+"</pre>");
+    w.document.close();
+    w.focus();
+    w.print();
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>
